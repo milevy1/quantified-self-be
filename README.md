@@ -18,7 +18,7 @@ Knex
   npm install pg --save
   npm install body-parser --save
 
-  knex init
+
 ```
 setup pg database
 ```pg
@@ -33,21 +33,13 @@ psql tracker_development
 \dt
 ```
   ```
-Make a migration
+Migrate latest
   ```shell
-  knex migrate:make initial
+knex migrate:latest
   ```
-
+seed the database
   ```shell
-  ```
-
-
-  ```shell
-  npm install
-  ```
-
-
-  ```shell
+knex seed:run
   ```
 
 ## Running the Server Locally
@@ -68,19 +60,7 @@ You will need to make sure that your Quantified Self API is also running at `htt
 
 This site will be served from GitHub Pages in production.
 
-In order to see your application running on production:
-
-1. From the command line, run `npm run build`.
-
-2. Commit and push your application to GitHub.
-
-3. Visit your repository on Github
-
-4. Go to Settings
-
-5. Under the Github Pages section of Options, select 'master' as your source and click `Save`
-
-Be sure to `npm run build` and commit before each push to master. A few seconds after you push up, you should be able to see your application at <https://your-github-username.github.io/quantified-self-fe>.
+From the command line, run `npm run build`.
 
 ## Built With
 
@@ -89,3 +69,10 @@ Be sure to `npm run build` and commit before each push to master. A few seconds 
 * [Express](https://expressjs.com/)
 * [Mocha](https://mochajs.org/)
 * [Chai](https://chaijs.com/)
+
+### References
+
+knex setup: migrations, seeds
+```https
+https://gist.github.com/NigelEarle/70db130cc040cc2868555b29a0278261
+```
