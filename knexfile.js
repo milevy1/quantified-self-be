@@ -4,18 +4,17 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/tracker-development',
-    migrations: {
-      directory: './db/migrations'
-    },
+    connection: 'postgres://localhost/tracker_development',
+              migrations: {
+                directory: './db/migrations'
+                    },
     useNullAsDefault: true
-    }
   },
 
   staging: {
     client: 'pg',
     connection: {
-      database: 'tracker-staging',
+      database: 'tracker_staging',
       user:     'jennicastiehl',
       password: 'null'
     },
@@ -31,7 +30,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      database: 'tracker-production',
+      database: 'tracker_production',
       user:     'jennicastiehl',
       password: 'null'
     },

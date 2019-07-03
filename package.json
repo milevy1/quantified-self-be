@@ -6,9 +6,26 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "morgan": "~1.9.1"
-  }
+    "express": "^4.16.4",
+    "knex": "^0.18.1",
+    "morgan": "~1.9.1",
+    "pg": "^7.11.0"
+  },
+  "description": "## Initial Setup Package ```shell npm install npm audit fix ``` Knex   ```shell   The primary target environment for Knex is Node.js, you will need to install the knex library, and then install the database library: pg for PostgreSQL.",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milevy1/quantified-self-be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milevy1/quantified-self-be/issues"
+  },
+  "homepage": "https://github.com/milevy1/quantified-self-be#readme"
 }
