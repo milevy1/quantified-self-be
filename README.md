@@ -41,7 +41,8 @@ seed the database
   ```shell
 knex seed:run
   ```
-  ![PostgreSQL](/images/pg-info.png)
+  ![PostgreSQL](/images/pg-info.jpg)
+  ![Schema](/images/schema.jpg)
   <!-- Format: ![Alt Text](url) -->
 ## Running the Server Locally
 
