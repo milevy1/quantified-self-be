@@ -20,7 +20,7 @@ Knex
 
 
 ```
-setup pg database
+## setup pg database
 ```pg
 psql
 CREATE DATABASE tracker_development;
@@ -41,7 +41,8 @@ seed the database
   ```shell
 knex seed:run
   ```
-
+  ![PostgreSQL](/images/pg-info.png)
+  <!-- Format: ![Alt Text](url) -->
 ## Running the Server Locally
 
 To see your code in action locally, you need to fire up a development server. Use the command:
