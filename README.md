@@ -69,10 +69,20 @@ From the command line, run `npm run build`.
 * [Express](https://expressjs.com/)
 * [Mocha](https://mochajs.org/)
 * [Chai](https://chaijs.com/)
+* [PostgreSQL](https://www.postgresql.org/docs/)
+* [Knex](https://knexjs.org/)
 
 ### References
 
 knex setup: migrations, seeds
 ```https
 https://gist.github.com/NigelEarle/70db130cc040cc2868555b29a0278261
+```
+knex setup guide
+```https
+https://gist.github.com/NigelEarle/80150ff1c50031e59b872baf0e474977
+```
+Express App with Knex
+```https
+https://github.com/turingschool/backend-curriculum-site/blob/gh-pages/module4/lessons/express_knex.md
 ```
