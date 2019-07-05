@@ -17,4 +17,18 @@ router.get('/', function(req, res, next) {
     });
 });
 
+/* POST foods */
+router.post('/', function(req, res, next) {
+  const food = req.body.food
+
+  database('foods').insert(food)
+    .returning('*')
+    .then((food) => {
+      res.status(200).json(food[0]);
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+});
+
 module.exports = router;
