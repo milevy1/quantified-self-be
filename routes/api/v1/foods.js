@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
   const food = req.body.food
 
   database('foods').insert(food)
-    .returning('*')
+    .returning(['id', 'name', 'calories'])
     .then((food) => {
       res.status(200).json(food[0]);
     })
