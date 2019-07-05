@@ -5,16 +5,16 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('foods').insert([
-        {id: 1, name: 'coke', calories: 320},
-        {id: 2, name: 'hamburger', calories: 780},
-        {id: 3, name: 'french fries', calories: 350},
-        {id: 4, name: 'apple', calories: 220},
-        {id: 5, name: 'scrambled eggs', calories: 350},
-        {id: 6, name: 'banana', calories: 150},
-        {id: 7, name: 'yogurt', calories: 350},
-        {id: 8, name: 'steak', calories: 350},
-        {id: 9, name: 'potato', calories: 350},
-        {id: 10, name: 'green beans', calories: 350}
+        { name: 'coke', calories: 320 },
+        { name: 'hamburger', calories: 780 },
+        { name: 'french fries', calories: 350 },
+        { name: 'apple', calories: 220 },
+        { name: 'scrambled eggs', calories: 350 },
+        { name: 'banana', calories: 150 },
+        { name: 'yogurt', calories: 350 },
+        { name: 'steak', calories: 350 },
+        { name: 'potato', calories: 350 },
+        { name: 'green beans', calories: 350 }
       ]);
     });
 };
