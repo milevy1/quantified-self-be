@@ -57,4 +57,23 @@ router.patch('/', async function(req, res, next) {
   }
 });
 
+/* DELETE foods */
+router.delete('/:id', function(req, res, next) {
+  const id_param = parseInt(req.params.id)
+
+  database('foods')
+    .where({ id: id_param })
+    .del()
+    .then((rowsDeleted) => {
+      if (rowsDeleted) {
+        res.status(204).send();
+      } else {
+        res.status(404).json({ Error: `Unable to delete food with id: ${id_param}` });
+      }
+    })
+    .catch((error) => {
+      res.status(404).json({ error });
+    });
+});
+
 module.exports = router;
