@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 // Knex connection to database
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('../../../knexfile')[environment];
-const database = require('knex')(configuration);
+const environment = process.env.NODE_ENV || "development";
+const configuration = require("../../../knexfile")[environment];
+const database = require("knex")(configuration);
+const Food = require('../../../models/food');
+const Meal = require('../../../models/meal');
 
 /* GET meals */
-const Meal = require('../../../models/meal')
-
 router.get('/', (req, res) => {
     Meal.query()
         .then(meals => {

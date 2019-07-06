@@ -1,10 +1,14 @@
 // Update with your config settings.
 // const config = require('config');
 // const postgres = config.get('postgres');
+// require('dotenv').config({path: 'path_to_env_file'});
+// require('dotenv').config()
+// const pg = require('pg')
+// pg.defaults.ssl = true
 
 module.exports = {
-
-    client: 'pg',
+  client: 'pg',
+  connection: process.env.DATABASE_URL,
   development: {
     client: 'pg',
     connection: 'postgres://localhost/tracker_development',

@@ -1,9 +1,10 @@
-// const knex = require('knex')
-const knex = require('../db/knex')({client: 'pg'})
+const knex = require('knex')({client: 'pg'})
 const connection = require('../knexfile')
 const { Model } = require('objection')
-// const knexConnection = knex(connection)
-// Model.knex(knexConnection)
+
+const knexConnection = knex(connection)
+
+Model.knex(knexConnection)
 
 class Meal extends Model {
   static get tableName () {
