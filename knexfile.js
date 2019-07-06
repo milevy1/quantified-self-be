@@ -1,7 +1,10 @@
 // Update with your config settings.
+// const config = require('config');
+// const postgres = config.get('postgres');
 
 module.exports = {
 
+    client: 'pg',
   development: {
     client: 'pg',
     connection: 'postgres://localhost/tracker_development',

@@ -6,16 +6,26 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../../../knexfile')[environment];
 const database = require('knex')(configuration);
 
-/* GET foods */
-router.get('/', function(req, res, next) {
-  database('meals').select('id', 'name')
-    .then((meals) => {
-      res.status(200).json(meals);
-    })
-    .catch((error) => {
-      res.status(500).json({ error });
-    });
-});
+/* GET meals */
+const Meal = require('../../../models/meal')
+
+router.get('/', (req, res) => {
+    Meal.query()
+        .then(meals => {
+            res.json(meals)
+        })
+})
+//-------------
+// router.get('/', function(req, res, next) {
+//   database('meals').select('id', 'name')
+//     .then((meals) => {
+//       res.status(200).json(meals);
+//     })
+//     .catch((error) => {
+//       res.status(500).json({ error });
+//     });
+// });
+//-----------------------
 // const objection = require('objection');
 // const Food = require('../../../models/food');
 // const Meal = require('../../../models/meal');
