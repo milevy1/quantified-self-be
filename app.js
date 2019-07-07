@@ -39,15 +39,5 @@ const configuration = require("./knexfile")[environment];
 const database = require("knex")(configuration);
 
 Model.knex(database)
-app.get('/', async (request, response) => {
-  try {
-    const meals = await Meal
-      .query();
-    response.send(meals)
-    }
-    catch (error) {
-      eval(pry.it)
-      response.status(404).json({ error })
-    }
-});
+
 module.exports = app;
