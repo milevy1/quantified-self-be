@@ -1,3 +1,5 @@
+const pry = require('pryjs');
+
 var express = require('express');
 var router = express.Router();
 
@@ -5,16 +7,30 @@ var router = express.Router();
 const environment = process.env.NODE_ENV || "development";
 const configuration = require("../../../knexfile")[environment];
 const database = require("knex")(configuration);
+
 const Food = require('../../../models/food');
 const Meal = require('../../../models/meal');
-
+const { Model } = require('objection');
+Model.knex(database)
 /* GET meals */
-router.get('/', (req, res) => {
-    Meal.query()
-        .then(meals => {
-            res.json(meals)
-        })
-})
+router.get('/', async (request, response) => {
+  try {
+    const meals = await Meal
+      .query()
+      .eager('foods');
+    response.send(meals)
+    }
+    catch (error) {
+      // eval(pry.it)
+      response.status(404).json({ error })
+    }
+});
+// router.get('/', (req, res) => {
+//     Meal.query()
+//         .then(meals => {
+//             res.json(meals)
+//         })
+// })
 //-------------
 // router.get('/', function(req, res, next) {
 //   database('meals').select('id', 'name')

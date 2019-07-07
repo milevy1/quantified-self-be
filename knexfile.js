@@ -8,10 +8,15 @@
 
 module.exports = {
   client: 'pg',
-  connection: process.env.DATABASE_URL,
+  // connection: process.env.DATABASE_URL,
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/tracker_development',
+    connection: {
+      database: 'tracker_development',
+      host : '127.0.0.1',
+      user: 'jennicastiehl',
+      password: null
+    },
               migrations: {
                 directory: './db/migrations'
                     },
