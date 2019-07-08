@@ -25,7 +25,11 @@ router.get('/:id', function(req, res, next) {
     .select('id', 'name', 'calories')
     .where({ id: id_param })
     .then((food) => {
-      res.status(200).json(food[0]);
+      if (food[0]) {
+        res.status(200).json(food[0]);
+      } else {
+        res.status(404).json({ error: `No food found with id: ${id_param}` }); 
+      }
     })
     .catch((error) => {
       res.status(500).json({ error });
