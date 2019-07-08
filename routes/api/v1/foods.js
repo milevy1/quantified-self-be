@@ -17,13 +17,6 @@ router.get('/', function(req, res, next) {
     });
 });
 // const Food = require('../../../models/food')
-//
-// router.get('/', (req, res) => {
-//     Food.query()
-//         .then(foods => {
-//             res.json(foods)
-//         })
-// })
 /* POST foods */
 router.post('/', function(req, res, next) {
   const food = req.body.food

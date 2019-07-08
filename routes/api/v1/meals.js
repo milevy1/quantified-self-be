@@ -1,4 +1,4 @@
-// const pry = require('pryjs');
+const pry = require('pryjs');
 
 var express = require('express');
 var router = express.Router();
@@ -9,6 +9,7 @@ const database = require("knex")(configuration);
 //objection
 const Food = require('../../../models/food');
 const Meal = require('../../../models/meal');
+const MealFood = require('../../../models/meal_food');
 const { Model } = require('objection');
 Model.knex(database)
 
@@ -47,6 +48,24 @@ router.get('/:meal_id/foods', async (request, response) => {
   } catch(error) {
     response.status(404).json({ error });
   }
+});
+const { transaction } = require('objection');
+/* POST food with assoc meal */
+router.post('/:meal_id/foods/:id', async(req, res) => {
+  const knex = MealFood.knex();
+try {
+  const meal = await Meal.query().findById(req.params.meal_id);
+  const food= await Food.query().findById(req.params.id);
+  // eval(pry.it)
+  // await MealFood.$relatedQuery('meals')
+  // .AllowInsert('[meal_foods]')
+  knex
+  .insert({meal_id: meal.id, food_id: food.id});
+  res.status(200).json({message: `Successfully added ${food.name} to ${meal.name}`});
+  }
+    catch(error) {
+      res.status(500).json({ error });
+    }
 });
 
 module.exports = router;
