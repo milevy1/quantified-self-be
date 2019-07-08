@@ -25,7 +25,6 @@
 *.log
 *.sql
 *.sqlite
-knexfile.js
 
 # OS generated files #
 ######################
