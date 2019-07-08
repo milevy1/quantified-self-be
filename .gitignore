@@ -50,3 +50,4 @@ config/application.yml
 /spring/*.pid
 tmp/
 .env
+node_modules
