@@ -15,7 +15,9 @@
     "knex": "^0.18.2",
     "morgan": "~1.9.1",
     "nodemon": "^1.19.1",
-    "pg": "^7.11.0"
+    "objection": "^1.6.9",
+    "pg": "^7.11.0",
+    "pryjs": "^1.0.3"
   },
   "description": "## Initial Setup Package ```shell npm install npm audit fix ``` Knex   ```shell   The primary target environment for Knex is Node.js, you will need to install the knex library, and then install the database library: pg for PostgreSQL.",
   "main": "app.js",
