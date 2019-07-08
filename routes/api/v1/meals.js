@@ -67,5 +67,14 @@ try {
       res.status(500).json({ error });
     }
 });
-
+//delete a meal_foods record
+router.delete('/:meal_id/foods/:id', async (req, res) => {
+  try {
+  await MealFood.query().deleteById(req.params.Id)
+  res.status(204);
+}
+    catch(error) {
+      res.status(404).json({ error });
+    }
+});
 module.exports = router;
