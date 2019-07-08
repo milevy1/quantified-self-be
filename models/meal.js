@@ -28,4 +28,4 @@ class Meal extends Model {
   }
 }
 
-module.exports = Meal
+module.exports = Meal;

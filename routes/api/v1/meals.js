@@ -1,4 +1,5 @@
 const pry = require('pryjs');
+// eval(pry.it)
 
 var express = require('express');
 var router = express.Router();
@@ -49,20 +50,14 @@ router.get('/:meal_id/foods', async (request, response) => {
     response.status(404).json({ error });
   }
 });
-const { transaction } = require('objection');
 /* POST food with assoc meal */
 router.post('/:meal_id/foods/:id', async(req, res) => {
-  const knex = MealFood.knex();
 try {
-  const meal = await Meal.query().findById(req.params.meal_id);
   const food= await Food.query().findById(req.params.id);
-  // eval(pry.it)
-  // await MealFood.$relatedQuery('meals')
-  // .AllowInsert('[meal_foods]')
-  knex
-  .insert({meal_id: meal.id, food_id: food.id});
-  res.status(200).json({message: `Successfully added ${food.name} to ${meal.name}`});
-  }
+  const meal = await Meal.query().findById(req.params.meal_id);
+  const wait = await food.$relatedQuery('meals').relate(meal.id);
+  res.send('message: Successfully added food.name'+' to '+ 'meal.name')
+}
     catch(error) {
       res.status(500).json({ error });
     }
@@ -70,8 +65,12 @@ try {
 //delete a meal_foods record
 router.delete('/:meal_id/foods/:id', async (req, res) => {
   try {
-  await MealFood.query().deleteById(req.params.Id)
-  res.status(204);
+  const numDeleted = await MealFood
+    .query()
+    .delete()
+    .where("food_id", parseInt(req.params.id))
+    .where("meal_id", parseInt(req.params.meal_id));
+  res.status(204).send();
 }
     catch(error) {
       res.status(404).json({ error });
