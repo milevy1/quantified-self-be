@@ -16,7 +16,7 @@ const knexConfig = require('./knexfile');
 const knex = Knex(knexConfig);
 Model.knex(knex);
 
-const port = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000
 //knex & objection---
 
 app.use(logger('dev'));
@@ -29,8 +29,8 @@ app.use('/', indexRouter);
 app.use('/api/v1/foods', foodsRouter);
 app.use('/api/v1/meals', mealsRouter);
 
-app.listen(port, () => {
-	console.log('Listening on port: ' + port)
+app.listen(PORT, () => {
+	console.log('Listening on PORT: ' + PORT)
 })
 
 const Meal = require('./models/meal');
