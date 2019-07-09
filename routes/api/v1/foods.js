@@ -16,6 +16,26 @@ router.get('/', function(req, res, next) {
       res.status(500).json({ error });
     });
 });
+
+/* GET a single food */
+router.get('/:id', function(req, res, next) {
+  const id_param = parseInt(req.params.id)
+
+  database('foods')
+    .select('id', 'name', 'calories')
+    .where({ id: id_param })
+    .then((food) => {
+      if (food[0]) {
+        res.status(200).json(food[0]);
+      } else {
+        res.status(404).json({ error: `No food found with id: ${id_param}` }); 
+      }
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+});
+
 // const Food = require('../../../models/food')
 //
 // router.get('/', (req, res) => {
@@ -24,6 +44,7 @@ router.get('/', function(req, res, next) {
 //             res.json(foods)
 //         })
 // })
+
 /* POST foods */
 router.post('/', function(req, res, next) {
   const food = req.body.food

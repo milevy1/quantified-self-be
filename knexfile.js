@@ -14,7 +14,7 @@ module.exports = {
     connection: {
       database: 'tracker_development',
       host : '127.0.0.1',
-      user: 'jennicastiehl',
+      user: process.env.DB_USER,
       password: null
     },
               migrations: {
