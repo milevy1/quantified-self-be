@@ -4,28 +4,32 @@ const { Model } = require('objection')
 const knexConnection = knex(connection)
 Model.knex(knexConnection)
 
-class Meal extends Model {
+class MealFood extends Model {
   static get tableName () {
-    return 'meals'
+    return 'meal_foods'
   }
   static get relationMappings () {
     const Food = require('./food')
 
     return {
       foods: {
-        relation: Model.ManyToManyRelation,
+        relation: Model.BelongsToOneRelation,
         modelClass: Food,
         join: {
-          from: 'meals.id',
-          through: {
-            from: 'meal_foods.meal_id',
-            to: 'meal_foods.food_id'
-          },
-          to: 'foods.id'
+          from: 'food_id',
+            to: 'foods.id'
+        }
+      },
+      meals: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Meal,
+        join: {
+          from: 'meal_id',
+            to: 'meals.id'
         }
       }
     }
   }
 }
 
-module.exports = Meal;
+module.exports = MealFood;

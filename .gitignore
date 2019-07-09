@@ -51,3 +51,4 @@ config/application.yml
 tmp/
 node_modules
 .env
+node_modules
