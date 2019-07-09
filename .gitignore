@@ -49,5 +49,6 @@ config/application.yml
 #######################
 /spring/*.pid
 tmp/
+node_modules
 .env
 node_modules

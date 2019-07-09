@@ -13,7 +13,7 @@ const Meal = require('../../../models/meal');
 const MealFood = require('../../../models/meal_food');
 const { Model } = require('objection');
 Model.knex(database)
-
+  
 /* GET meals */
 router.get('/', async (request, response) => {
   try {
@@ -31,6 +31,7 @@ router.get('/', async (request, response) => {
     response.status(404).json({ error });
   }
 });
+
 /* GET meal by id and assoc foods */
 router.get('/:meal_id/foods', async (request, response) => {
   const id_param = parseInt(request.params.meal_id)
@@ -50,6 +51,7 @@ router.get('/:meal_id/foods', async (request, response) => {
     response.status(404).json({ error });
   }
 });
+
 /* POST food with assoc meal */
 router.post('/:meal_id/foods/:id', async(req, res) => {
 try {
@@ -62,6 +64,7 @@ try {
       res.status(500).json({ error });
     }
 });
+
 //delete a meal_foods record
 router.delete('/:meal_id/foods/:id', async (req, res) => {
   try {
